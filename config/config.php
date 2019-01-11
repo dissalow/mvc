@@ -10,7 +10,7 @@ Config::set('language', array('en','fr'));
 
 Config::set('routes', array(
     'default' => '',
-    'admin' => 'admin'  
+    'admin' => 'admin_'  
 ));
 
 // Стандартные настройки

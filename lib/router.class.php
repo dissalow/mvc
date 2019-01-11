@@ -60,14 +60,15 @@ class Router{
         $this->action = Config::get('default_action');
         
         $uri_parts = explode('?', $this->uri);
-        
+
         // Разбор строки
         
         $path = $uri_parts[0];
+
         $path_parts = explode('/', $path);
-        
+
         // Получение пути или префикса языка
-        if (count($path_parts)){  
+        if (count($path_parts)) {
             if (in_array(strtolower(current($path_parts)), array_keys($routes)) ){
                 $this->routes = strtolower(current($path_parts));
                 $this->methot_prefix = isset($routes[$this->route]) ? $routes[$this->route] : '';
