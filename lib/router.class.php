@@ -55,7 +55,7 @@ class Router{
         $routes = Config::get('routes');
         $this->routes = Config::get('default_route');
         $this->methot_prefix = isset($routes[$this->routes]) ? $routes[$this->routes] : '';
-        $this->language = Config::get('default_leanguage');
+        $this->language = Config::get('default_language');
         $this->controller = Config::get('default_controller');
         $this->action = Config::get('default_action');
         
