@@ -26,7 +26,7 @@ class Router{
         return $this->params;
     }
 
-    public function __constract($uri) {
+    public function __construct($uri) {    
         print_r('Router was called wihth uri: ' . $uri);
     }
 }
