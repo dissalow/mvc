@@ -68,6 +68,8 @@ class Router{
         
         // echo '<pre>'; print_r($uri_parts);
         
+        
+        // Получение пути или префикса языка
         if (count($path_parts)){
             if (in_array(strtolower(current($path_parts)), array_keys($routes)) ){
                 $this->routes = strtolower(current($path_parts));
@@ -76,9 +78,12 @@ class Router{
             } elseif (in_array(strtolower(current($path_parts)), Config::get('language'))){
                 $this->language = strtolower(current($path_parts));
                 array_shift($path_parts);
-            }
-            
+            }    
         }
+        
+        //Получение имени контроллера
+        
+        
         
     }
 }
