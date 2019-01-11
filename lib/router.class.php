@@ -66,11 +66,8 @@ class Router{
         $path = $uri_parts[0];
         $path_parts = explode('/', $path);
         
-        // echo '<pre>'; print_r($uri_parts);
-        
-        
         // Получение пути или префикса языка
-        if (count($path_parts)){
+        if (count($path_parts)){  
             if (in_array(strtolower(current($path_parts)), array_keys($routes)) ){
                 $this->routes = strtolower(current($path_parts));
                 $this->methot_prefix = isset($routes[$this->route]) ? $routes[$this->route] : '';
@@ -78,12 +75,24 @@ class Router{
             } elseif (in_array(strtolower(current($path_parts)), Config::get('language'))){
                 $this->language = strtolower(current($path_parts));
                 array_shift($path_parts);
-            }    
+            }
         }
         
         //Получение имени контроллера
         
+        if (current($path_parts)){
+            $this->controller = strtolower(current($path_parts));
+            array_shift($path_parts);
+        }
         
+        //Получение метода (action)
+        if (current($path_parts)){
+            $this->action = strtolower(current($path_parts));
+            array_shift($path_parts);
+        }
+        
+        //Получение параметров
+        $this->params = $path_parts;
         
     }
 }
